@@ -1,0 +1,402 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* width: 100vw;
+    height: 100vh; */
+    min-height: 100vh;
+    min-width: 1200px;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    /* height: auto; */
+    overflow: hidden; 
+}
+
+
+
+/* 导航条部分 */
+ul {
+    list-style-type: none;
+}
+
+.top {
+    position: absolute;
+    float: left;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 999;
+    height: 50px;
+    background-color:#fefeff30;
+    width: 100%;
+    min-width: 1280px;
+    /* opacity: 0.7; */
+    /* border: 2px solid #000; */
+    /* color: #000; */
+    box-shadow: 0 2px 4px 0px rgb(0 0 0 / 5%);
+}
+
+.menu {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.logo {
+    display: block;
+    position: absolute;
+    float: left;
+    margin-top: 5px;
+    margin-left: 35px;
+    /* margin-bottom: 10px; */
+    /* background-color: blue; */
+    height: 40px;
+    /* color: #000; */
+}
+
+.logo a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url("./icon/logo.ico");
+    background-size: 40px;
+    line-height: 40px;
+    /* float: left; */
+}
+
+.logo span{
+    /* display: inline-block; */
+    color: black;
+    font-size: 25px;
+    float: right;
+    margin:auto 10px;
+    line-height: 40px;
+    font-family:"微软雅黑";
+    font-weight: normal;
+    margin-left: 20px;
+}
+.nav {
+    float: right;
+    margin-top: 10px;
+    margin-right: 50px;
+    font-size: 0;
+    position: relative;
+}
+
+.nav li {
+    display: inline-block;
+    /* height: 40px; */
+    /* width: auto; */
+    /* padding: auto 30px; */
+    margin-left: 50px;
+    /* border-radius: 10px; */
+    /* background-color: #000; */
+    
+}
+.nav a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    /* margin: auto 20px; */
+}
+
+.nav a:hover {
+    color: #83c3f3;
+}
+
+
+
+
+
+
+
+
+
+/* 导航栏 */
+.container{
+    width: 98%;
+    height: 88vh;
+    /* 弹性布局 水平排列 */
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 45px;
+}
+/* 字体图标 */
+.icon{
+    color: #fff;
+    font-size: 24px;
+}
+/* 左侧导航栏 */
+.left-box{
+    width: 13vw;
+    height: 100%;
+    /* 半透明背景 */
+    background-color:bisque;
+    box-shadow: 2px 2px 4px 0px rgb(0 0 0 / 5%);
+    /* 背景模糊（毛玻璃） */
+    backdrop-filter: blur(30px);
+    /* 相对定位 */
+    position: relative;
+    color: black;
+    font-size: 15px;
+    /* 弹性布局 垂直排列 */
+    display: flex;
+    flex-direction: column;
+    /* 设置过渡 */
+    transition: 0.5s ease;
+    /* 不让文字换行 */
+    white-space: nowrap;
+
+}
+.left-box ul{
+    list-style: none;
+    width: 90%;
+    margin: 10px  auto;
+    /* 高度铺满 */
+    flex: 1;
+}
+.left-box ul a{
+    text-decoration: none;
+    color: black;
+}
+.left-box li{
+    height: 46px;
+    /* 弹性布局 垂直居中 */
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* 过渡 */
+    transition: 0.3s;
+}
+/* .left-box li a{
+    text-decoration: none;
+    color: black;
+} */
+/* 选中态样式 */
+.left-box li.active,
+.left-box li.active:hover{
+    background-color: rgba(255, 255, 255, 0.407);
+}
+.left-box li:hover{
+    background-color: rgba(255, 255, 255, 0.407);
+}
+.left-box hr{
+    width: 80%;
+    margin: 18px auto;
+    border: none;
+    border-top: 1px solid black;
+    /* border-top: 1px solid rgba(255,255,255,0.2); */
+}
+.left-box .icon{
+    margin-right: 16px;
+}
+/* 用户信息区域 */
+.user-info{
+    border-top: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    padding: 30px 20px 20px 24px;
+    /* background-color: #222; */
+}
+.user-info img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 14px;
+}
+.user-info span{
+    flex: 1;
+}
+.user-info .icon{
+    font-size: 20px;
+    margin-right: 0;
+}
+/* 右侧区域 */
+.right-box{
+    background-color: #FBFBFB;
+    /* background-color: black; */
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.right-box .top{
+    margin: 25px 35px;
+    display: flex;
+    align-items: center;
+    height: 46px;
+}
+.right-box .top .current-content{
+    flex: 1;
+    color: black;
+    font-weight: 600;
+}
+.right-box .top .btn{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.right-box .top .btn:last-child{
+    background-color: #446dff;
+    margin-left: 20px;
+}
+.right-box .middle{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    font-size: 6vw;
+    /* font-weight: bold; */
+    /* text-transform: uppercase; */
+}
+/* 展开收起开关 */
+.right-box .handler{
+    width: 10px;
+    height: 50px;
+    /* 绝对定位 垂直居中 */
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    /* 光标变小手 */
+    cursor: pointer;
+    /* 默认不透明度为0 */
+    opacity: 1;
+    /* 过渡 */
+    transition: opacity 0.3s;
+    background-color: black;
+    /* color: #446dff; */
+}
+.right-box .handler::before,
+.right-box .handler::after{
+    content: "";
+    background-color: rgba(255,255,255,0.2);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+    /* 过渡 */
+    transition: 0.2s;
+}
+.right-box .handler::after{
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+}
+.right-box:hover .handler{
+    opacity: 1;
+}
+.right-box .handler:hover::before{
+    transform: skewX(-15deg);
+}
+.right-box .handler:hover::after{
+    transform: skewX(15deg);
+}
+.right-box .handler.close:hover::before{
+    transform: skewX(15deg);
+}
+.right-box .handler.close:hover::after{
+    transform: skewX(-15deg);
+}
+
+
+
+#router-view .one{
+    color: red;
+}
+
+
+
+
+#router-view{
+    font-size: 18px;
+}
+
+/* 个人资料对应页面 */
+.person-info{
+    width: 80vw;
+    height: 90vh;
+    position: relative;
+    float: left;
+    background-color:#FBFBFB;
+    box-shadow: 0 0 20px rgb(0 0 0 / 5%);
+    /* box-shadow: 2px 2px 4px 0px rgb(0 0 0 / 5%); */
+}
+.person-info img{
+    width: 80px;
+    height: 80px;
+    background-color:#222;
+    border-radius: 40px;
+}
+.person-info form{
+    /* background-color:; */
+    margin: 30px auto;
+    width: 72vw;
+    height: 50vh;
+    /* background-color: #83c3f3;    */
+
+}
+.person-info form label{
+    display: inline-block;
+    width: 95px;
+    text-align: justify;
+    text-align-last: justify;
+    /* color: #446dff; */
+    margin-right: 20px;
+}
+.person-info form input{
+    /* border-radius: 5px; */
+    border: none;
+    height: 5vh;
+    width: 20vw;
+    margin: 15px 0;
+    font-size: 18px;
+    letter-spacing:0.1em;
+    padding-left: 0.8%;
+    font: inherit;
+}
+/* .person-info form input:focus{
+    border:none;
+    background-color: #222;
+} */
+.person-info form input::placeholder{
+    font-size: 15px;
+    letter-spacing: 0.1cm;
+    
+
+}
+.person-info form button{
+    font-size: 18px;
+    background-color:#FFE4C4;
+    position: relative;
+    margin-top: 25px;
+    /* margin-left: 30px; */
+    /* margin: 20px auto; */
+    margin-left: 40%;
+    width: 100px;
+    height: 40px;
+    border-radius: 7px;
+    border: none;
+}
+.person-info form button:hover{
+    background-color: #fafafa;
+}
+
+/* 账号管理对应页面 */
+

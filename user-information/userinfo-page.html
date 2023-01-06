@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户中心</title>
+
+    <link rel="stylesheet" href="./userinfo-page.css">
+    <link rel="icon" href="./icon/icon.ico">
+    <link rel="stylesheet" href="fonts/font.css">
+    <link rel="stylesheet" href="userinfo-page.css">
+</head>
+
+<body>
+    <div class="top">
+        <div class="menu">
+            <div class="logo">
+                <a href="#"></a>
+                <span class="fas">实验报告管理系统 . ERMS</span>
+            </div>
+            <ul class="nav">
+                <!-- <li>
+                    <a href="javascript:">#</a>
+                </li>
+                <li>
+                    <a href="javascript:">#</a>
+                </li>
+                <li>
+                    <a href="javascript:">#</a>
+                </li> -->
+                <li>
+                    <a href="javascript:">帮助</a>
+                </li>
+                <li>
+                    <a href="javascript:">关于</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-box">
+            <div class="user-info">
+                <img src="./1.jpg" alt="">
+                <span>用户名</span>
+                <i class="icon icon-gear"></i>
+            </div>
+            <hr>
+            <ul>
+                <a href="/userinfo" class="router">
+                    <li class="item active">
+                        <i class="icon icon-file"></i>
+                        个人资料
+                    </li>
+                </a>
+
+                <a href="/account" class="router">
+                    <li class="item">
+                        <i class="icon icon-album"></i>
+                        账号管理
+                    </li>
+                </a>
+                <a href="/favorite" class="router">
+                    <li class="item">
+                        <i class="icon icon-like"></i>
+                        收藏夹
+                    </li>
+                </a>
+
+                <a href="/subscription" class="router">
+                    <li class="item">
+                        <i class="icon icon-favorite"></i>
+                        订阅
+                    </li>
+                </a>
+                <a href="/recycle-bin" class="router">
+                    <li class="item">
+                        <i class="icon icon-trash"></i>
+                        回收站
+                    </li>
+                </a>
+                <a href="/#####" class="router">
+                    <li class="item">
+                        <i class="icon icon-transfer"></i>
+                        ####
+                    </li>
+                </a>
+            </ul>
+            <!-- <input type="text" placeholder=""> -->
+        </div>
+        <div class="right-box">
+            <!-- <div class="top">
+                <div class="current-content">文件</div>
+                <div class="btn">
+                    <i class="icon icon-search"></i>
+                </div>
+                <div class="btn">
+                    <i class="icon icon-add"></i>
+                </div> 
+            </div> -->
+            <div class="middle">
+                <div id="router-view"></div>
+            </div>
+            <!-- <div class="handler"></div> -->
+        </div>
+    </div>
+    <script src="userinfo-page.js"></script>
+    <script type="text/javascript">  
+        function Router(parameters) {
+            let vue = {};
+            vue.routes = parameters.routes || [];
+            vue.init = function () {
+                document.querySelectorAll(".router").forEach((item, index) => {
+                    item.addEventListener("click", function (e) {
+                        let event = e || window.event;
+                        event.preventDefault();
+                        window.location.hash = this.getAttribute("href");
+                    }, false);
+                });
+                window.addEventListener("hashchange", () => {
+                    vue.routerChange();
+                });
+                vue.routerChange();
+            };
+            vue.routerChange = () => {
+                let nowHash = window.location.hash;
+                let index = vue.routes.findIndex((item, index) => {
+                    return nowHash == ('#' + item.path);
+                });
+                if (index >= 0) {
+                    document.querySelector("#router-view").innerHTML = vue.routes[index].component;
+                } else {
+                    let defaultIndex = vue.routes.findIndex((item, index) => {
+                        return item.path == '*';
+                    });
+                    if (defaultIndex >= 0) {
+                        window.location.hash = vue.routes[defaultIndex].redirect;
+                    }
+                }
+            };
+
+            vue.init();
+        }
+
+
+
+        // let router = {};
+        // function route(parameters) {
+        //     document.querySelectorAll(".router").forEach((item, index) => {
+        //         item.addEventListener(onclick, function (e) {
+        //             let event = e;
+        //             window.location.hash = this.getAttribute("href");
+        //         })
+        //     })
+        // }
+
+
+        new Router({
+            routes: [{
+                path: '/userinfo',
+                component: 
+                '<div class="person-info" ><form class="info"><img type=""></input></br><label for="name">昵称</label><input class="name" id="name" placeholder="未填写"/></br><label for="tel">电话</label><input class="tel" id="tel" placeholder="未填写"/> </br><label for="email">电子邮件</label><input class="email" id="email" placeholder="未填写"/> </br><label for="school">学校</label><input class="school" id="school" placeholder="未填写"/></br><label for="intro">个人简介</label><textarea cols="80"></textarea></br><button value="submit">提交</button></form></div>'
+            
+            }, {
+                path: '/account',
+                component:   '<div class="person-info" ><form class="info"></input></br><label for="name">账号</label><input class="name" id="name" placeholder="未填写"/></br><label for="tel">密码</label><input class="tel" id="tel" placeholder="未填写"/> </br><label for="email">手机号</label><input class="email" id="email" placeholder="未填写"/> </br><label for="school">学校</label><input class="school" id="school" placeholder="未填写"/></br><button value="submit">提交</button></form></div>'
+            }, {
+                path: '/favorite',
+                component: "<h1>收藏夹</h1>"
+            }, {
+                path: '/subscription',
+                component: "<h1>订阅</h1>"
+            }, {
+                path: '/recycle-bin',
+                component:"<h1>回收站</h1>"
+
+            }, {
+                path: '*',
+                redirect: '/home'
+            }]
+        });
+    </script>
+</body>
+
+</html>
