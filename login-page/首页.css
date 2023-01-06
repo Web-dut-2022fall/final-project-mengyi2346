@@ -1,0 +1,418 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    min-width: 1200px;
+    /* 弹性布局 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    /* height: auto; */
+}
+
+
+
+
+
+
+.container{
+    background-color: #B5CEA8;
+    width: 380px;
+    height: 540px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    top:3vh;
+    left: 68vh;
+    box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.262);
+}
+.container::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* background: url("images/bg.jpg") no-repeat; */
+    background-size: 500px;
+    background-position: left bottom;
+    opacity: 0.8;
+}
+/* 注册区域（登录区域很多样式和注册区域的一样，故而一些统一的样式写在了一起） */
+.register-box{
+    width: 70%;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.3s ease;
+}
+.register-title,
+.login-title{
+    color: #fff;
+    font-size: 27px;
+    text-align: center;
+}
+.register-title span,
+.login-title span{
+    color: rgba(0,0,0,0.4);
+    display: none;
+}
+.register-box .input-box,
+.login-box .input-box{
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.6s ease;
+}
+
+
+
+
+.register-box input,
+.login-box input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 17px;
+    padding: 8px 0;
+    text-indent: 15px;
+    outline: none;
+}
+.register-box input:last-child,
+.login-box input:last-child{
+    border-bottom: none;
+}
+.register-box input::placeholder,
+.login-box input::placeholder{
+    color: rgba(0,0,0,0.4);
+}
+.register-box button,
+.login-box button{
+    width: 100%;
+    padding: 15px 45px;
+    margin: 30px 0 15px 0;
+    background: rgba(0,0,0,0.4);
+    border: none;
+    border-radius: 15px;
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.3s ease;
+}
+.register-box button:hover,
+.login-box button:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+/* 登录区域 */
+.login-box{
+    position: absolute;
+    inset: 0;
+    top: 20%;
+    z-index: 2;
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+.login-box::before{
+    content: "";
+    background-color: #fff;
+    width: 200%;
+    height: 250px;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.login-box .center{
+    width: 70%;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+}
+.login-title{
+    color: #000;
+}
+.login-box .input-box{
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.login-box button{
+    background-color: #75a297;
+}
+/* 注册、登录区域收起 */
+.login-box.slide-up{
+    top: 90%;
+}
+.login-box.slide-up .center{
+    top: 10%;
+    transform: translate(-50%,0%);
+}
+.login-box.slide-up .login-title,
+.register-box.slide-up .register-title{
+    font-size: 16px;
+    cursor: pointer;
+}
+.login-box.slide-up .login-title span,
+.register-box.slide-up .register-title span{
+    margin-right: 5px;
+    display: inline-block;
+}
+.login-box.slide-up .input-box,
+.login-box.slide-up .button,
+.register-box.slide-up .input-box,
+.register-box.slide-up .button{
+    opacity: 0;
+    visibility: hidden;
+}
+.register-box.slide-up{
+    top: 6%;
+    transform: translate(-50%,0%);
+}
+.forget-password{
+    font-size: 12px;
+    /* font-weight: 400; */
+    text-decoration: none;
+    color: #3A3F3E;
+    position: absolute;
+    margin-left: 210px;
+    margin-top: 50px;
+}
+.forget-password:hover{
+    color: black;
+}
+
+
+
+
+
+
+/* 轮播图区域 */
+.lunbo {
+    width: 820px;
+    height: 540px;
+    position: absolute;
+    top: 6vh;
+    right: 67vh;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    /* border: 1px solid red; */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.421);
+}
+.content {
+    width: 100%;
+    height: 100%;
+}
+#item {
+    width: 100%;
+    height: 100%;
+}
+li {
+    list-style: none;
+}
+.item {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1s;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+.active {
+    opacity: 1;
+}
+.left-btn {
+    position: absolute;
+    font-size: 75px;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    left: 10px;
+    top: 50%;
+    margin-top: -38px;
+}
+.right-btn {
+    position: absolute;
+    font-size: 75px;
+    font-weight: 600;
+    right: 10px;
+    opacity: 0;
+    cursor: pointer;
+    top: 50%;
+    margin-top: -38px;
+}
+.left-btn i{
+    font-size: 50px;
+    color: white;
+    /* font-weight: 200; */
+}
+.right-btn i{
+    font-size: 50px;
+    color: white;
+    /* font-weight: 100; */
+}
+
+.content:hover .right-btn {
+    opacity: 0.7;
+}
+.content:hover .left-btn {
+    opacity: 0.7;
+}
+#tip {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    /* border:1px solid red; */
+    transform: translateX(-50%);
+    display: flex;
+}
+.tip {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: grey;
+    margin: 0 5px 0 5px;
+    cursor: pointer;
+}
+.tomato {
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+/* 导航条区域 */
+ul {
+    list-style-type: none;
+}
+
+.top {
+    position: absolute;
+    float: left;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 999;
+    height: 50px;
+    background-color:#fefeff30;
+    width: 100%;
+    min-width: 1280px;
+    /* opacity: 0.7; */
+    /* border: 2px solid #000; */
+    /* color: #000; */
+    box-shadow: 0 2px 4px 0px rgb(0 0 0 / 5%);
+}
+
+.menu {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.logo {
+    display: block;
+    position: absolute;
+    float: left;
+    margin-top: 5px;
+    margin-left: 35px;
+    /* margin-bottom: 10px; */
+    /* background-color: blue; */
+    height: 40px;
+    /* color: #000; */
+}
+
+.logo a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url("./icon/logo.ico");
+    background-size: 40px;
+    line-height: 40px;
+    /* float: left; */
+}
+
+.logo span{
+    /* display: inline-block; */
+    color: black;
+    font-size: 25px;
+    float: right;
+    margin:auto 10px;
+    line-height: 40px;
+    font-family:"微软雅黑";
+    font-weight: normal;
+    margin-left: 20px;
+}
+.nav {
+    float: right;
+    margin-top: 10px;
+    margin-right: 50px;
+    font-size: 0;
+    position: relative;
+}
+
+.nav li {
+    display: inline-block;
+    /* height: 40px; */
+    /* width: auto; */
+    /* padding: auto 30px; */
+    margin-left: 50px;
+    /* border-radius: 10px; */
+    /* background-color: #000; */
+    
+}
+.nav a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    /* margin: auto 20px; */
+}
+
+.nav a:hover {
+    color: #83c3f3;
+}
+
+
+/* 底部版权信息 */
+.footer {
+    height: 80px;
+    line-height: 17px;
+    position: absolute;
+    bottom: -15vh;
+    width: 100%;
+    text-align: center;
+    background: #B5C2C0;
+    /* opacity: 0.2; */
+    color: black;
+    font-family: Arial;
+    font-size: 13px;
+    letter-spacing: 2px;
+    }
+.footer-text{
+    margin-top: 10px;
+    opacity: 1;
+}

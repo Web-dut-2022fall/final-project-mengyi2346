@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>首页</title>
+    <link href="../Fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./首页.css" >
+    <link rel="icon" href="./icon.ico">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+</head>
+
+<body>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <div class="top">
+        <div class="menu">
+            <div class="logo">
+                <a href="#"></a>
+                <span class="fas">实验报告管理系统 . ERMS</span>
+            </div>
+            <ul class="nav">
+                <!-- <li>
+                    <a href="javascript:">#</a>
+                </li>
+                <li>
+                    <a href="javascript:">#</a>
+                </li>
+                <li>
+                    <a href="javascript:">#</a>
+                </li> -->
+                <li>
+                    <a href="javascript:">帮助</a>
+                </li>
+                <li>
+                    <a href="javascript:">关于</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="register-box slide-up">
+            <h2 class="register-title">
+                <span>没有账号，去</span>注册
+            </h2>
+            <div class="input-box" id="inputBox">
+                <input type="text" v-model="account" id="account" placeholder="账号">
+                <!-- <label for="accpunt">账号</label> -->
+                <input type="password" v-model="password" id="password1" placeholder="密码">
+                <!-- <label for="password1">密码</label> -->
+                <input type="password"  id="password2" placeholder="确认密码">
+                <!-- <label for="password2">确认密码</label> -->
+            </div>
+            <button onclick="register_submit()">注册</button>
+        </div>
+        <div class="login-box ">
+            <div class="center">
+                <h2 class="login-title">
+                    <span>已有账号，去</span>登录
+                </h2>
+                <div class="input-box" id="inputBox">
+                    <input type="text" placeholder="账号" v-model="account">
+                    <input type="password" placeholder="密码" v-model="password">
+                </div>
+                <button onclick="login_submit()">登录</button>
+                <div>
+                    <a href="#" class="forget-password">忘记密码?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+          new Vue({
+            el:'#inputBox',
+            data:{
+                account:'',
+                password:'',
+            }
+        })
+        // 获取要操作的元素
+        let login_title = document.querySelector(".login-title");
+        let register_title = document.querySelector(".register-title");
+        let login_box = document.querySelector(".login-box");
+        let register_box = document.querySelector(".register-box");
+        let account=document.getElementById('account').value;
+        let password1=document.getElementById('password1').value;
+        let password2=document.getElementById('password2').value;
+
+
+
+        // 绑定标题点击事件
+        login_title.addEventListener('click', () => {
+            // 判断是否收起，收起才可以点击
+            if (login_box.classList.contains('slide-up')) {
+                register_box.classList.add('slide-up');
+                login_box.classList.remove('slide-up');
+            }
+        })
+        register_title.addEventListener('click', () => {
+            if (register_box.classList.contains('slide-up')) {
+                login_box.classList.add('slide-up');
+                register_box.classList.remove('slide-up');
+            }
+        })
+        function register_submit(){
+            alert("提交表单数据并验证");
+            
+        }
+        function login_submit(){
+            alert("提交表单数据");
+        }
+      
+    </script>
+
+    <div class="lunbo">
+        <div class="content">
+            <ul id="item">
+                <li class="item active">
+                    <!-- #代表当前页面 -->
+                    <a herf="#"><img src="./image/1.jpg"> </a>
+                </li>
+                <li class="item">
+                    <!-- #代表当前页面 -->
+                    <a herf="#"><img src="./image/2.jpg"> </a>
+                </li>
+                <li class="item">
+                    <!-- #代表当前页面 -->
+                    <a herf="#"><img src="./image/3.jpg"> </a>
+                </li>
+                <li class="item">
+                    <!-- #代表当前页面 -->
+                    <a herf="#"><img src="./image/4.jpg"> </a>
+                </li>
+                <li class="item">
+                    <!-- #代表当前页面 -->
+                    <a herf="#"><img src="./image/5.jpg"> </a>
+                </li>
+            </ul>
+            <div class="left-btn"> <i class="fas fa-angle-left" ></i> </div>
+            <div class="right-btn"> <i class="fas fa-angle-right" ></i> </div>
+                    <ul id="tip">
+                        <li class="tip tomato"></li>
+                        <li class="tip"></li>
+                        <li class="tip"></li>
+                        <li class="tip"></li>
+                        <li class="tip"></li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            var items = document.getElementsByClassName("item");
+            var tips = document.getElementsByClassName("tip");
+            var lbtn = document.getElementsByClassName("left-btn")[0];
+            var rbtn = document.getElementsByClassName("right-btn")[0];
+            var content = document.getElementsByClassName("content")[0];
+            var test = document.getElementsByClassName("right-btn");
+            console.log(test);
+            var index = 0;
+            var timer = null;
+            console.log(test);
+            //  清空class
+            function clear() {
+                for (let i = 0; i < items.length; i++) {
+                    items[i].className = "item";
+                    tips[i].className = "tip";
+                    tips[i].setAttribute("num", i);
+                }
+            }
+            // 图片转换
+            function move() {
+                clear();
+                items[index].className = "item active";
+                tips[index].className = "tip tomato";
+            }
+            // 左键
+            lbtn.onclick = function () {
+                if (index > 0) {
+                    index--;
+                }
+                else {
+                    index = items.length - 1;
+                }
+                move();
+            }
+            // 右键
+            rbtn.onclick = function () {
+                index++;
+                index = index % items.length;
+                move();
+            }
+            //定时器
+            timer = setInterval(function () {
+                rbtn.onclick();
+            }, 20000);
+            content.onmouseover = function () {
+                clearInterval(timer);
+            }
+            content.onmouseleave = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    rbtn.onclick();
+                }, 20000);
+            }
+            for (let i = 0; i < tips.length; i++) {
+                tips[i].addEventListener("click", function () {
+                    var number = this.getAttribute("num");
+                    index = number;
+                    move();
+                })
+            }
+        }
+    </script>
+
+    <div class="footer">
+        <div class="footer-text">版权信息:erms   邮箱:1017940336@qq.com<br>
+         备案号   
+        </div>
+    </div>
+
+</body>
+
+</html>
